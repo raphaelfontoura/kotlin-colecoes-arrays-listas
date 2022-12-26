@@ -24,6 +24,25 @@ fun main() {
     val gastoInicial = salariosReajustados.somatoria()
     println("Gasto total com aumento $gastoInicial")
 
+    val meses = 6.toBigDecimal()
+    val gastoTotal = salariosReajustados.fold(gastoInicial) { acumulador, salario ->
+        acumulador + (salario * meses).setScale(2, RoundingMode.UP)
+    }
+
+    println("Gasto total após 6 meses $gastoTotal")
+
+    val salariosOrdenados = salariosReajustados.sorted()
+    val tresUltimosSalarios: Array<BigDecimal> = salariosOrdenados.takeLast(3).toTypedArray()
+    val media = tresUltimosSalarios.media()
+
+    println("Média 3 maiores: $media")
+
+    val mediaOneLine = salariosReajustados.sorted().takeLast(3).toTypedArray().media()
+    println("Média 3 maiores (uma linha): $mediaOneLine")
+
+    val media3Primeiros = salariosReajustados.sorted().take(3).toTypedArray().media()
+    println("Média 3 menores: $media3Primeiros")
+
 }
 
 private fun calculaAumentoRelativo(
@@ -35,15 +54,4 @@ private fun calculaAumentoRelativo(
     (salario * aumento).setScale(2, RoundingMode.UP)
 }
 
-fun bigDecimalArrayOf(vararg valores: String): Array<BigDecimal>{
-    // O “vararg” é um tipo especial do Kotlin que você consegue passar mais de um valor para a função
-    return Array<BigDecimal>(valores.size) { i ->
-        valores[i].toBigDecimal()
-    }
-}
 
-fun Array<BigDecimal>.somatoria(): BigDecimal {
-    return this.reduce { acumulador, valor ->
-        acumulador + valor
-    }.setScale(2, RoundingMode.UP)
-}
