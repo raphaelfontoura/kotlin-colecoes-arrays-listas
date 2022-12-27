@@ -1,14 +1,22 @@
 package br.com.rddev.list
 
+import br.com.rddev.collection.testaCopia
+
 fun main() {
-    val nomes: Collection<String> = listOf("Alex", "Fran", "Gui", "Maria", "Ana")
 
-    for (nome in nomes) { // nomes.iterator()
-        println(nome)
-    }
-    println(nomes)
+    val assistiramCursoAndroid = listOf("Alex", "Fran", "Gui", "Maria")
+    val assistiramCursoKotlin = listOf("Alex", "Paulo", "Maria")
 
-    println("Tem o nome Alex? ${nomes.contains("Alex")}")
-    println("Tamanho da coleção ${nomes.size}")
+    val assistiramAmbos = mutableListOf<String>()
+    assistiramAmbos.addAll(assistiramCursoAndroid)
+    assistiramAmbos.addAll(assistiramCursoKotlin)
+
+    println(assistiramAmbos)
+
+    val assistiramAmbosSum = assistiramCursoAndroid + assistiramCursoKotlin
+    println(assistiramAmbosSum.distinct())
 
 }
+
+
+
