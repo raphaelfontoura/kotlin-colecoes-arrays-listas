@@ -1,23 +1,24 @@
 package br.com.rddev.set
 
 fun main() {
-    val assistiramCursoAndroid = setOf("Alex", "Fran", "Gui", "Maria")
-    val assistiramCursoKotlin = listOf("Alex", "Paulo", "Maria")
 
-    val assistiramAmbos = assistiramCursoAndroid + assistiramCursoKotlin
+    val pedidos = mapOf(Pair(1, 20.0), Pair(2, 34.0), 3 to 50.0)
+    // o infix <to> deve ser evitado caso o map seja grande -> questão de performance
+    println(pedidos)
 
-    println(assistiramAmbos)
-//    println(assistiramAmbos[0])
+    val pedido0 = pedidos[0]
+    pedido0?.let {
+        println("pedido $it")
+    }
 
-    val assistiramCursoAndroid2 = setOf("Alex", "Fran", "Gui", "Maria")
-    val assistiramCursoKotlin2 = listOf("Alex", "Paulo", "Maria")
+    val pedido1 = pedidos[1]
+    pedido1?.let {
+        println("pedido $it")
+    }
 
-    val assistiramAmbos2 = mutableSetOf<String>()
-    assistiramAmbos2.addAll(assistiramCursoAndroid2)
-    assistiramAmbos2.addAll(assistiramCursoKotlin2)
-    assistiramAmbos2.add("Gui")
-    assistiramAmbos2.add("Ana")
-
-    println(assistiramAmbos2)
-
+    for (pedido: Map.Entry<Int, Double> in pedidos) {
+        println("número do pedido: ${pedido.key}")
+        println("valor do pedido: ${pedido.value}")
+    }
 }
+
