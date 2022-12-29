@@ -1,6 +1,4 @@
-package br.com.rddev.list
-
-import br.com.rddev.collection.testaCopia
+package br.com.rddev.collection.list
 
 fun main() {
 

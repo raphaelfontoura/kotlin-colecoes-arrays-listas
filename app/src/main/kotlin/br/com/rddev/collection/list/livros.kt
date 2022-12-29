@@ -1,4 +1,4 @@
-package br.com.rddev.list
+package br.com.rddev.collection.list
 
 val listaDeLivros = mutableListOf(
     Livro(

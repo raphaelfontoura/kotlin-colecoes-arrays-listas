@@ -1,4 +1,4 @@
-package br.com.rddev.list
+package br.com.rddev.collection.list
 
 fun List<Livro?>.imprimeComMarcadores() {
     val textoFormatado = this

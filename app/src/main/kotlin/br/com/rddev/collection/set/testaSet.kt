@@ -1,4 +1,4 @@
-package br.com.rddev.set
+package br.com.rddev.collection.set
 
 fun testaSet() {
     val assistiramCursoAndroid = setOf("Alex", "Fran", "Gui", "Maria")
