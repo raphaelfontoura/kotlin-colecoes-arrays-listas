@@ -30,11 +30,14 @@ fun main() {
     val mapaFreteGratis = pedidos.groupBy { pedido -> pedido.valor > 50.0 }
     println(mapaFreteGratis)
     println(mapaFreteGratis[true])
+    println(pedidos.groupingBy { pedido -> pedido.valor > 50.0 }.eachCount())
 
-    val nomes = listOf("Alex", "Fran", "Gui", "Ana", "Paulo", "Maria", "Mario", "Gisele")
+    val nomes = listOf("Alex", "Fran", "Gui", "Ana", "Paulo", "Maria", "Mario", "Gisele", "Marcos")
     val agenda = nomes.groupBy { nome -> nome.first() }
     println(agenda)
     println(agenda['M'])
+
+    println(nomes.groupingBy { nome -> nome.first() }.eachCount())
 
 }
 
